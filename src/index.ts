@@ -1,3 +1,3 @@
-import {TaskService} from 'task-service';
+import {TaskService} from './task-service';
 
 export {TaskService};

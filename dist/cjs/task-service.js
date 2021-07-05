@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,40 +8,46 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import axios from 'axios';
-export class TaskService {
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TaskService = void 0;
+const axios_1 = __importDefault(require("axios"));
+class TaskService {
     getAllTasks() {
         return __awaiter(this, void 0, void 0, function* () {
             let url = "http://localhost:3000/api/v1/tasks";
-            return axios.get(url);
+            return axios_1.default.get(url);
         });
     }
     getTask(id) {
         return __awaiter(this, void 0, void 0, function* () {
             let url = "http://localhost:3000/api/v1/tasks/" + id;
-            return axios.get(url);
+            return axios_1.default.get(url);
         });
     }
     addTask(task) {
         return __awaiter(this, void 0, void 0, function* () {
             let url = "http://localhost:3000/api/v1/tasks";
-            return axios.post(url, task);
+            return axios_1.default.post(url, task);
         });
     }
     deleteTask(taskId) {
         return __awaiter(this, void 0, void 0, function* () {
             let url = "http://localhost:3000/api/v1/tasks/" + taskId;
-            return axios.delete(url);
+            return axios_1.default.delete(url);
         });
     }
     updateStatus(taskId, status) {
         return __awaiter(this, void 0, void 0, function* () {
             let data = { id: taskId, status: status };
             let url = "http://localhost:3000/api/v1/tasks/" + taskId;
-            return axios.patch(url, data);
+            return axios_1.default.patch(url, data);
         });
     }
 }
+exports.TaskService = TaskService;
 //Goal: Move this class to npm library, so that others 
 //no need to create service class to call rest api
 // HTML ( .js) ==> angular (.js = typescript)
