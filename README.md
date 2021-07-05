@@ -56,29 +56,28 @@ npx tsc --init
 
 ```
 {
-  "name": "@ks-sdk-client/rest",
+  "name": "taskapp-rest-client",
   "version": "1.0.0",
-  "description": "",
+  "description": "",  
   "main": "./dist/cjs/index.js",
   "types": "./dist/esm/index.d.ts",
-  "module": "./dist/esm/index.js",
+  "module": "./dist/n/index.js",
+  
   "files": [
     "dist/"
   ],
   "scripts": {
     "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
-    "publish": "npm run tsc"
+    "prepublish": "npm run tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^4.1.4"
+    "typescript": "^4.3.5"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "lodash": "^4.17.20",
-    "rxjs": "^6.6.7"
+    "axios": "^0.21.1"
   }
 }
 
